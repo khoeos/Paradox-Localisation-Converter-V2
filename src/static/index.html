@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Paradox mod localisation converter</title>
+    <link rel="stylesheet" href="index.css">
+    <script defer src='../scripts/render.js'></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="text-gray-50 h-screen w-screen max-w-4xl mx-auto">
+    <img src="img/clouds.png" alt="" id="cloud1" class="clouds fixed top-0 left-0 z-0">
+    <img src="img/clouds.png" alt="" id="cloud2" class="clouds fixed -top-10 left-0 z-0">
+    <div class="relative z-10">
+
+      <div class="flex justify-between fixed top-0 w-screen left-0 px-20 py-5">
+        <div>
+          <label for="game" class="hidden">Game</label>
+          <select name="game" id="game">
+            <option value="Stellaris">Stellaris</option>
+          </select>
+        </div>
+        <h1 class="text-xl">Paradox localisation file converter</h1>
+        <button id="about" class="px-2 py-1 ">Github</button>
+      </div>
+      <div class="h-screen flex flex-col justify-between pt-32 items-center pb-2">
+
+        <form id="form" class="w-full flex flex-col items-center gap-y-10">
+          <div>
+           <h2 class="font-semibold text-xl">How does it work ?</h2>
+            <p class="text-sm">
+              You can learn more in the github readme accessible with the button in the top right corner. <br/>
+              But to explain it simply, this app generate language file from english to avoid translation tag when files for your language are missing. <br/>
+              Enter your mod folder location, and select which language you want. The app will take the English localisation files, adapt it to your desired language and try to add them in the folders. If the file already exists it will not replace it.
+              <ul class="list-disc pl-10 text-sm">
+                <li>A .addedFiles file is added to each mod folder with the new Files</li>
+                <li>If the mod use synced_localisation or replace folder, the script will ignore the files inside</li>
+                <li>The script work for the entire mod folder but also for single mod.</li>
+                <li>For use with another paradox game, look into the about tab.</li>
+              </ul>
+            </p>
+          </div>
+
+          <div class="flex gap-x-10 w-full justify-between">
+  
+            <div class="w-7/12">
+              <label class="font-semibold text-lg" for="folder">Mod(s) folder</label>
+              <div class="flex flex-col mt-2">
+                <p>Folder where all your mods are located, or a single mod (modpack for example)</p>
+                <p class="text-gray-300 text-sm ml-2">Base : C:\Program Files (x86)\Steam\steamapps\workshop\content\281990</p>
+                <p class="text-gray-300 text-sm ml-2">Other location : D:\SteamLibrary\steamapps\workshop\content\281990</p>
+                <div class="flex gap-x-2 w-full mt-2">
+                  <select name="type" id="type" class="hidden">
+                    <option value="folder">Mod Folder</option>
+                    <option value="single">single Mod</option>
+                  </select>
+                  <input id="folder" class="w-full" type="text" placeholder="C:\Program Files (x86)\Steam\steamapps\workshop\content\281990">
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <p class="font-semibold text-lg">Languages</p>
+              <div class="mt-2 grid grid-cols-4 gap-x-3 gap-y-2 win-w-max">
+                <label for="french">French</label>
+                <label class="switch" for="french">
+                  <input type="checkbox" id="french" name="french" value="french">
+                  <span class="slider round"></span>
+                </label>
+    
+                <label for="german">German</label>
+                <label class="switch" for="german">
+                  <input type="checkbox" id="german" name="german" value="german">
+                  <span class="slider round"></span>
+                </label>
+    
+                <label for="polish">polish</label>
+                <label class="switch" for="polish">
+                  <input type="checkbox" id="polish" name="polish" value="polish">
+                  <span class="slider round"></span>
+                </label>
+    
+                <label for="russian">russian</label>
+                <label class="switch" for="russian">
+                  <input type="checkbox" id="russian" name="russian" value="russian">
+                  <span class="slider round"></span>
+                </label>
+    
+                <label for="spanish">spanish</label>
+                <label class="switch" for="spanish">
+                  <input type="checkbox" id="spanish" name="spanish" value="spanish">
+                  <span class="slider round"></span>
+                </label>
+    
+                <label for="simp_chinese">Chinese</label>
+                <label class="switch" for="simp_chinese">
+                  <input type="checkbox" id="simp_chinese" name="simp_chinese" value="simp_chinese">
+                  <span class="slider round"></span>
+                </label>
+    
+                <label for="braz_por">Portugese</label>
+                <label class="switch" for="braz_por">
+                  <input type="checkbox" id="braz_por" name="braz_por" value="braz_por">
+                  <span class="slider round"></span>
+                </label>
+              </div>
+            </div>
+            
+          </div>
+  
+          <button id="submit" class="py-1 px-3" type="submit">Translate</button>
+        </form>
+        <p class="text-gray-300 text-sm text-center leading-4">By Khoéos <br/> Discord : Khoéos#9117</p>
+        <button id="debug" class="fixed right-2 text-green-500 bottom-2 text-xs line-through opacity-20">Debug mode</button>
+
+        
+      </div>
+      
+    </div>
+    
+
+    <!-- You can also require other files to run in this process -->
+  </body>
+</html>

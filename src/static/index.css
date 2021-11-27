@@ -1,0 +1,132 @@
+input, select {
+    background: rgba(100, 98, 98, 0.5);
+    padding: 0.5em 0.5em;
+    border-radius: 5px;
+}
+
+body {
+    background-image: url('img/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.clouds {
+    animation: animation 5s linear infinite alternate;
+    transform: scale(1.5px);
+    opacity: 0.5
+}
+#cloud1 {
+    animation: animation 45s linear infinite alternate;
+}
+
+#cloud2 {
+    transform: rotate(90deg);
+    
+    animation: animation2 120s linear infinite;
+}
+
+
+@keyframes animation {
+    0% {
+        transform: translateX(-500px)
+    }
+    100% {
+        transform: translateX(500px)
+    }
+}
+
+@keyframes animation2 {
+    0% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+#submit {
+    font-weight: 700;
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    transition: .2s cubic-bezier(.215,.61,.355,1);
+    transition-property: color,border-color,box-shadow;
+    
+    font-size: 1.125rem;
+
+    color: #fff;
+    background: rgba(255,141,52,.6);
+
+    border-color: #f3b27e;
+    box-shadow: inset 0 0 2.5em rgb(255 141 52 / 40%);
+}
+
+#submit:hover {
+    color: white;
+    background: rgba(255, 167, 52, 0.705);
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 22px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 24px;
+    width: 24px;
+    left: -2px;
+    bottom: -0.5px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(22px);
+  }
+
+  #about {
+      border:1px solid rgba(255, 167, 52, 0.705);
+      transition: all ease .1s
+  }
+
+  #about:hover {
+      color: rgba(255, 191, 52, 0.89);
+  }
