@@ -8,15 +8,15 @@
   <p align="center">
     A simple app to generate localisation for your language, based on english version for Paradox's Games
     <br />
-    <a href="https://github.com/Khoeos/Paradox-mod-localisation-converter"><strong>Download App »</strong></a>
+    <a href="https://github.com/khoeos/Paradox-Localisation-Converter-V2/releases"><strong>Download App »</strong></a>
     <br/>
     <br/>
-    <a href="https://github.com/Khoeos/Paradox-mod-localisation-converter">Explore the docs »</a>
+    <a href="https://github.com/khoeos/Paradox-Localisation-Converter-V2">Explore the docs »</a>
     <br />
     <br />
-    <a href="https://github.com/Khoeos/Paradox-mod-localisation-converter/issues">Report Bug</a>
+    <a href="https://github.com/khoeos/Paradox-Localisation-Converter-V2/issues">Report Bug</a>
     ·
-    <a href="https://github.com/Khoeos/Paradox-mod-localisation-converter/issues">Request Feature</a>
+    <a href="https://github.com/khoeos/Paradox-Localisation-Converter-V2/issues">Request Feature</a>
   </p>
 </p>
 
