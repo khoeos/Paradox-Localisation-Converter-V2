@@ -1,7 +1,9 @@
 const fs = require('fs');
 const dirTree = require("directory-tree");
-let debug = false
+let debug = true
 let languages = ['french', 'german', 'polish', 'russian', 'spanish', 'simp_chinese', 'braz_por']
+
+let gameKey = null
 
 // G:\SteamLibrary\steamapps\workshop\content\281990
 
@@ -11,19 +13,23 @@ async function translate(dir, language) {
     // Possibilité d'extraire les fichiers de trad au lieu de les ajouter dans un dossier
     // cas ou il y a un fichier de trad classique dans le dossier replace, mais pas la version de la langue - 1100284147
     dirTree(dir, {extensions:/\.yml$/}, (item, path, stats) => {
-        // Vérifie si dans le chemin du fichier, il y a le dossier localisation
+        console.log('test')
+        // Vérifie si dans le chemin du fichier, il y a le dossier localization
         // Si non, passe le fichier 
-        if (path.split('\\').indexOf('localisation') === -1) {
+        if (path.split('\\').indexOf(gameKey) === -1) {
+            console.log('1')
             return
         }
         // Ignore les fichiers qui ne sont pas dans un sous dossier english
-        // Sauf ceux qui sont à la racine du dossier localisation
-        if (path.split('\\').indexOf('english') === -1 && path.split('\\').indexOf('localisation') + 2 != path.split('\\').length) {
+        // Sauf ceux qui sont à la racine du dossier localization
+        if (path.split('\\').indexOf('english') === -1 && path.split('\\').indexOf(gameKey) + 2 != path.split('\\').length) {
+            console.log('2')
             return
         }
         // Si le chemin contient le dossier replace, ignore ce fichier
         // (à gérer plus tard car la nomenclature est différente)
         if (path.split('\\').indexOf('replace') != -1) {
+            console.log('3')
             return
         }
         
@@ -34,7 +40,7 @@ async function translate(dir, language) {
         let locPath = path.split('\\');
         debug ? console.log(locPath) : ''
         // 
-        let filePath = locPath.splice(locPath.indexOf('localisation') + 1, locPath.length - locPath.indexOf('localisation'))
+        let filePath = locPath.splice(locPath.indexOf(gameKey) + 1, locPath.length - locPath.indexOf(gameKey))
         debug ? console.log(filePath) : ''
         debug ? console.log(' ') : ''
 
@@ -57,7 +63,7 @@ async function translate(dir, language) {
 
     
         debug ? console.log('THIRD BLOCK') : ''
-        // Vérifie si le fichier est à la racine du dossier localisation
+        // Vérifie si le fichier est à la racine du dossier localization
         // Si non, place remplace le nom du dossier par la langue visée
         if (filePath.length > 1) {
             filePath[0] = language
@@ -113,7 +119,18 @@ async function handleForm(e) {
     languages.forEach(el => {
         document.getElementById(el).checked ? lang.push(el) : ''
     })
+    switch (document.getElementById('game').value) {
+        case 'stellaris':
+            gameKey = 'localisation'
+            break;
+        case 'ck3':
+            gameKey = 'localization'
+           break;
+        default:
+            break;
+    }
     console.log(lang)
+    console.log(gameKey)
     lang.forEach(el => {
         translate(document.getElementById('folder').value, el)
     })
@@ -124,7 +141,7 @@ async function handleForm(e) {
 form.addEventListener('submit', handleForm)
 
 document.getElementById('about').addEventListener('click', () => {
-    require('electron').shell.openExternal("https://github.com/khoeos/Paradox-Localisation-Converter-V2")
+    require('electron').shell.openExternal("https://github.com/khoeos/Paradox-localization-Converter-V2")
 });
 
 
