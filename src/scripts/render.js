@@ -126,7 +126,11 @@ async function handleForm(e) {
         case 'ck3':
             gameKey = 'localization'
            break;
+        case 'eu4':
+            gameKey = 'localisation'
+            break;
         default:
+            gameKey = 'localisation'
             break;
     }
     console.log(lang)
