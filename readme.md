@@ -1,10 +1,7 @@
 <!-- PROJECT LOGO -->
+# <a href="https://github.com/khoeos/Paradox-mod-language-converter">Depecrated, New version here</a>
 <br />
 <p align="center">
-  <a href="https://github.com/Khoeos/Paradox-mod-localisation-converter">
-    <img src="github/app.png" alt="Logo">
-  </a>
-
   <p align="center">
     A simple app to generate localisation for your language, based on english version for Paradox's Games
     <br />
